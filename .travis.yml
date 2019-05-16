@@ -23,7 +23,8 @@ before_install:
        for i in $PWD/examples/**/*.ino; do
          echo $i
          buildExampleSketch $i
-         if $?; then
+         exit_status=$?
+         if [ $exit_status != 0 ]; then
            failureNum=$((failureNum + 1))
            echo failure on this thing: $i
          else
