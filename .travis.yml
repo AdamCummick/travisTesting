@@ -20,5 +20,5 @@ install:
 script:
 -  |
   for i in $HOME/Arduino/libraries/travisTesting/examples/**/*.ino; do
-      echo $i
+      buildExampleSketch $i
   done
