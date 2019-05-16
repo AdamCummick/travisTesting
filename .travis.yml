@@ -19,6 +19,7 @@ install:
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
 -  |
-  for i in $HOME/Arduino/libraries/travisTesting/examples/**/*.ino; do
+  for i in $PWD/examples/**/*.ino; do
+      echo $i
       buildExampleSketch $i
   done
