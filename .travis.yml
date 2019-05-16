@@ -34,7 +34,7 @@ before_install:
          fi
        done
        
-       for i in "${arr[@]}"; do
+       for i in "${failureList[@]}"; do
          echo Failure to build: $i
        done
        echo $failureNum
