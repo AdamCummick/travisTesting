@@ -18,18 +18,16 @@ before_install:
   - badBuildExampleSketch() {  arduino --verify --board $BOARD $PWD/examples/tempBad/$1/$1.ino; }
   
   - buildAllExamples(){
-      local failureNum=0
-      shopt -s globstar
-      for i in $PWD/examples/**/*.ino; do
-        echo $i
-        if buildExampleSketch $i; then
-          failureNum=failureNum+1
-          echo failure on this thing: $i
-        fi
-    done
-    
-    exit failureNum
-  
+    - local failureNum=0
+    - shopt -s globstar
+    - for i in $PWD/examples/**/*.ino; do
+       - echo $i
+       - if buildExampleSketch $i; then
+       -   failureNum=failureNum+1
+          #echo failure on this thing: $i
+       - fi
+    - done
+    - exit failureNum
   }
 install:
   - mkdir -p $HOME/Arduino/libraries
