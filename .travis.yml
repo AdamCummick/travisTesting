@@ -15,6 +15,7 @@ before_install:
     fi
   - buildExampleSketch() { arduino --verify --board $BOARD $1; }
   - oldBuildExampleSketch() {  arduino --verify --board $BOARD $PWD/examples/$1/$1.ino; }
+  - badBuildExampleSketch() {  arduino --verify --board $BOARD $PWD/examples/badSketch/$1/$1.ino; }
 install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
@@ -28,3 +29,4 @@ script:
   
   oldBuildExampleSketch testGood
   oldBuildExampleSketch testBad
+  badBuildExampleSketch badSketch
