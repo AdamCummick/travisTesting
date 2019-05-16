@@ -27,6 +27,7 @@ before_install:
          if [ $exit_status != 0 ]; then
            failureNum=$((failureNum + 1))
            echo Failure Building: $i
+           failureList+=($i)
          else
            echo Build Successful: $i
          fi
@@ -39,8 +40,11 @@ install:
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
 -  |
+  declare -a failureList=()
   buildAllExamples
+  for i in "${arr[@]}"; do
+    echo Failure to build: $i
+  done
   
-  #oldBuildExampleSketch testGood
-  #oldBuildExampleSketch testBad
-  #badBuildExampleSketch badSketch
+
+

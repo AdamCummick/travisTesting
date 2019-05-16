@@ -7,6 +7,6 @@ void setup() {
 int i = 0; //this is why I need syntax highlighting
 void loop() {
   // put your main code here, to run repeatedly:
-i = incrementValue(i);
+i = incrementValue(sdsdi);
 
 }
