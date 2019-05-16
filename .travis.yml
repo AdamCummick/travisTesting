@@ -14,7 +14,7 @@ before_install:
       arduino --install-boards arduino:samd &> /dev/null;
     fi
   - buildExampleSketch() { arduino --verify --board $BOARD $1; }
-
+  - oldBuildExampleSketch() {  arduino --verify --board $BOARD $PWD/examples/$1/$1.ino; }
 install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
@@ -23,5 +23,8 @@ script:
   shopt -s globstar
   for i in $PWD/examples/**/*.ino; do
       echo $i
-      buildExampleSketch $i
+      #buildExampleSketch $i
   done
+  
+  oldBuildExampleSketch testGood
+  oldBuildExampleSketch testBad
