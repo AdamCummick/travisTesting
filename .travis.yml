@@ -18,6 +18,7 @@ before_install:
   - badBuildExampleSketch() {  arduino --verify --board $BOARD $PWD/examples/tempBad/$1/$1.ino; }
   -  |
      buildAllExamples(){
+       declare -a failureList=()
        local failureNum=0
        shopt -s globstar
        for i in $PWD/examples/**/*.ino; do
@@ -32,6 +33,10 @@ before_install:
            echo Build Successful: $i
          fi
        done
+       
+       for i in "${arr[@]}"; do
+         echo Failure to build: $i
+       done
        echo $failureNum
        return $failureNum;
       }
@@ -40,11 +45,8 @@ install:
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
 -  |
-  declare -a failureList=()
   buildAllExamples
-  for i in "${arr[@]}"; do
-    echo Failure to build: $i
-  done
+
   
 
 
