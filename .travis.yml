@@ -26,7 +26,7 @@ before_install:
          exit_status=$?
          if [ $exit_status != 0 ]; then
            failureNum=$((failureNum + 1))
-           echo failure on this thing: $i
+           echo Failure Building: $i
          else
            echo Build Successful: $i
          fi
