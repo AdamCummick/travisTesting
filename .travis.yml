@@ -18,6 +18,7 @@ install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
-- for i in $HOME/Arduino/libraries/travisTesting/examples/**/*.ino; do
-  - echo $i
-- done
+-  |
+  for i in $HOME/Arduino/libraries/travisTesting/examples/**/*.ino; do
+      echo $i
+  done
