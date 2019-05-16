@@ -25,7 +25,8 @@ script:
   for i in $PWD/examples/**/*.ino; do
       echo $i
       if buildExampleSketch $i; then
-        set errexit
+        set -e
+        echo failure on this thing: $i
       fi
   done
   
