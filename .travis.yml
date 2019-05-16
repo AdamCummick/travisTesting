@@ -37,7 +37,7 @@ before_install:
        echo
        echo $failureNum total build failures
        for i in "${failureList[@]}"; do
-         echo Failure to build: $i
+         echo Failed to build: $i
        done
        
        return $failureNum;
@@ -46,8 +46,7 @@ install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
--  |
-  buildAllExamples
+  - buildAllExamples
 
   
 
