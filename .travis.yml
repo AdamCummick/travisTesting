@@ -27,7 +27,7 @@ before_install:
             #echo failure on this thing: $i
          fi
        done
-      exit failureNum;
+      exit $failureNum;
       }
 install:
   - mkdir -p $HOME/Arduino/libraries
