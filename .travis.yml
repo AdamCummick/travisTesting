@@ -18,6 +18,6 @@ install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
-for i in $PWD/examples/**/*.ino; do
+- for i in $PWD/examples/**/*.ino; do
   echo $i
 done
