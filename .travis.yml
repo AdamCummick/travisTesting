@@ -24,9 +24,9 @@ script:
   shopt -s globstar
   for i in $PWD/examples/**/*.ino; do
       echo $i
-      #buildExampleSketch $i
+      buildExampleSketch $i
   done
   
-  oldBuildExampleSketch testGood
-  oldBuildExampleSketch testBad
-  badBuildExampleSketch badSketch
+  #oldBuildExampleSketch testGood
+  #oldBuildExampleSketch testBad
+  #badBuildExampleSketch badSketch
