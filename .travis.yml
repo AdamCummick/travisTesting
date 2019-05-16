@@ -22,8 +22,8 @@ before_install:
        shopt -s globstar
        for i in $PWD/examples/**/*.ino; do
          echo $i
-         #if buildExampleSketch $i; then
-         if [[ $(buildExampleSketch $i) != 0 ]]; then
+         buildExampleSketch $i
+         if $?; then
            failureNum=$((failureNum + 1))
            echo failure on this thing: $i
          fi
