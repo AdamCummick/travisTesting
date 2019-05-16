@@ -14,12 +14,13 @@ before_install:
       arduino --install-boards arduino:samd &> /dev/null;
     fi
   - buildExampleSketch() { arduino --verify --board $BOARD $1; }
-  - set -o globstar
+
 install:
   - mkdir -p $HOME/Arduino/libraries
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
 -  |
+  set -o globstar
   for i in $PWD/examples/**/*.ino; do
       echo $i
       # buildExampleSketch $i
