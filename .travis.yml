@@ -24,7 +24,9 @@ script:
   shopt -s globstar
   for i in $PWD/examples/**/*.ino; do
       echo $i
-      buildExampleSketch $i
+      if buildExampleSketch $i; then
+        set errexit
+      fi
   done
   
   #oldBuildExampleSketch testGood
