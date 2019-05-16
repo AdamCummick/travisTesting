@@ -36,8 +36,8 @@ install:
   - ln -s $PWD $HOME/Arduino/libraries/travisTesting
 script:
 -  |
-  buildAllExamples
+  #buildAllExamples
   
-  #oldBuildExampleSketch testGood
+  oldBuildExampleSketch testGood
   #oldBuildExampleSketch testBad
   #badBuildExampleSketch badSketch
