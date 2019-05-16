@@ -24,7 +24,7 @@ before_install:
          echo $i
          if buildExampleSketch $i; then
            failureNum=$((failureNum + 1))
-            #echo failure on this thing: $i
+           echo failure on this thing: $i
          fi
        done
        echo $failureNum
