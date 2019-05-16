@@ -26,6 +26,8 @@ before_install:
          if $?; then
            failureNum=$((failureNum + 1))
            echo failure on this thing: $i
+         else
+           echo Build Successful: $i
          fi
        done
        echo $failureNum
