@@ -33,11 +33,13 @@ before_install:
            echo Build Successful: $i
          fi
        done
-       
+       echo 
+       echo
+       echo $failureNum total build failures
        for i in "${failureList[@]}"; do
          echo Failure to build: $i
        done
-       echo $failureNum
+       
        return $failureNum;
       }
 install:
