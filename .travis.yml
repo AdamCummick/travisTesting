@@ -23,7 +23,7 @@ before_install:
        for i in $PWD/examples/**/*.ino; do
          echo $i
          if buildExampleSketch $i; then
-           failureNum=failureNum+1
+           failureNum=$((failureNum + 1))
             #echo failure on this thing: $i
          fi
        done
