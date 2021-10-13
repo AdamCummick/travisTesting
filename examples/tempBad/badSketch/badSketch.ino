@@ -7,6 +7,6 @@ void setup() {
 int i = 0; //was an error
 void loop() {
   // put your main code here, to run repeatedly:
-i = incrementValue(i)//oops
+i = incrementValue(i);
 
 }
